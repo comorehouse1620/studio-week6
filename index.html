@@ -80,7 +80,7 @@
 		// Null variable that will hold Healthsites data
 		var Healthsites = null;
 
-		// Add GeoJSON Data to the map when it loads
+	
 		// Add GeoJSON Data to the map when it loads
 		$.getJSON("data/Mali_healthsites.geojson",function(data){
 			// set Healthsites to the dataset and add the Healthsites GeoJSON layer to the map
@@ -96,6 +96,26 @@
 
 
 		// Create Custom Icons Here
+
+		// Create Custom Icons Here
+		// Start by creating a standard Health Icon
+		var healthIcon = L.Icon.extend({ // adding the .extend and capital I!
+		options:{
+			iconUrl: 'icons/health_facility.png',
+			iconSize: [24,24],
+			iconAnchor: [12,12],
+			popupAnchor: [0,-6]
+		}
+		});
+
+		// Create specific icons for amenity types
+		var clinicIcon = new healthIcon({iconUrl: 'icons/clinic.png'});
+		var dentistIcon = new healthIcon({iconUrl: 'icons/dentist.png'});
+		var doctorsIcon = new healthIcon({iconUrl: 'icons/doctor.png'});
+		var hospitalIcon = new healthIcon({iconUrl: 'icons/health_facility.png'});
+		var pharmacyIcon = new healthIcon({iconUrl: 'icons/medicine.png'});
+
+
 
 		// Add Admin unit Polygons
 
