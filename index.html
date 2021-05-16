@@ -2,9 +2,7 @@
 <html>
 <head>
 	<title>Mali Health Sites Map</title>
-	<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
 	<script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
 	<style>
@@ -110,18 +108,9 @@
     	// Add Tile Layer
 		L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
 			attribution: '&copy; OpenStreetMap France | &copy; Tiles by <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a> | Data by <a href="https://data.humdata.org/dataset/wfp-geonode-ica-mali-prevalence-of-global-acute-malnutrition">World Food Programme</a> & <a href="https://data.humdata.org/dataset/mali-healthsites">OSM Contributors</a>',
-			maxZoom: 18,
-			minZoom: 2
+			maxZoom: 17,
+			minZoom: 5
 		}).addTo(map);
-
-
-		//Adding the search geocoder
-		L.Control.geocoder({
-		position: "topleft",
-		placeholder: "Enter place name",
-		errorMessage: "No place found.",
-		})
-		.addTo(map);
 
 
 
@@ -237,11 +226,15 @@
 		legend.addTo(map);
 
 
-
-		// Add Scale Bar to Map
 		// Add Scale Bar to Map
 		L.control.scale({position: 'bottomleft'}).addTo(map);
 
+		//Adding the search geocoder
+		L.Control.geocoder({
+  		position: "topleft",
+  		placeholder: "Enter place name",
+  		errorMessage: "No place found.",
+		}).addTo(map);
 
 	</script>
 </body>
